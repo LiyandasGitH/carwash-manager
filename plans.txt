@@ -1,0 +1,4 @@
+Plans, kinda | Ideas, maybe 
+
+
+(1) memberStatus as ENUM ?
