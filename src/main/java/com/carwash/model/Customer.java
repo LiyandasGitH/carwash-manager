@@ -19,6 +19,64 @@ public class Customer {
         this.joinDate = joinDate;
     }
 
-    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        if (id < 0) {
+            throw new IllegalArgumentException();
+        }
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if (name.isEpmpty || name == null) {
+            throw new IllegalArgumentExeption();
+        }
+        this.name = name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void getPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMemberStatus() {
+        return memberStatus;
+    }
+
+    public void setMemberStatus(String status) {
+        this.memberStatus = status;
+    }
+
+    public LocalDate getJoinDate() {
+        return joinDate;
+    }
+
+    public void setJoinDate(LocalDate joined) {
+        this.joinDate = joined;
+    }
+
+    @Override
+    public String toString() {
+        return name + " is a " + (memberStatus != null) ? + memberStatus + " customer at Sifiso's Car Wash.";
+    }
+
 
 }
