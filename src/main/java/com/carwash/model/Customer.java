@@ -10,6 +10,8 @@ public class Customer {
     private String memberStatus; // NONE, BASIC, PREMIUM
     private LocalDate joinDate;
 
+    public Customer() {}
+
     public Customer(int id, String name, String phone, String email, String memberStatus, LocalDate joinDate) {
         this.id = id;
         this.name = name;
@@ -35,7 +37,7 @@ public class Customer {
     }
 
     public void setName(String name) {
-        if (name.isEpmpty()) {
+        if (name.isEmpty()) {
             throw new IllegalArgumentExeption();
         }
         this.name = name;
@@ -45,7 +47,7 @@ public class Customer {
         return phone;
     }
 
-    public void getPhone(String phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

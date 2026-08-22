@@ -1,4 +1,4 @@
-package com.carwash.service;
+package com.carwash.servicetests;
 
 public class TicketServiceTest {
     

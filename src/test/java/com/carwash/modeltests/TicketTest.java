@@ -1,4 +1,4 @@
-package com.carwash.model;
+package com.carwash.modeltests;
 
 public class TicketTest {
     

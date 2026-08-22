@@ -2,3 +2,12 @@ Plans, kinda | Ideas, maybe
 
 
 (1) memberStatus as ENUM ?
+(2) input validation for setters
+(3) distinguish immutable vs mutable fields
+(4) write tests for classes
+
+
+
+
+Notes
+    - running mvn test, got compilation errors (look into it)
