@@ -35,7 +35,7 @@ public class Customer {
     }
 
     public void setName(String name) {
-        if (name.isEpmpty || name == null) {
+        if (name.isEpmpty()) {
             throw new IllegalArgumentExeption();
         }
         this.name = name;
