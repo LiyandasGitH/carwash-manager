@@ -1,4 +1,4 @@
-package com.carwash.modeltests;
+package com.carwash.model;
 
 public class Employee {
     
