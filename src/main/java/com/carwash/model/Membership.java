@@ -18,6 +18,60 @@ public class Membership {
         this.customerId = customerId;
         this.plan = plan;
         this.monthlyFee = monthlyFee;
+        this.active = active;
+        this.renewing = renewing;
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getPlan() {
+        return plan;
+    }
+
+    public void setPlan(String plan) {
+        this.plan = plan;
+    }
+
+    public BigDecimal getMonthlyFee() {
+        return monthlyFee;
+    }
+
+    public void setMonthlyFee(BigDecimal monthlyFee) {
+        this.monthlyFee = monthlyFee;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public LocalDate getRenewing() {
+        return renewing;
+    }
+
+    public void setRenewing(LocalDate renewing) {
+        this.renewing = renewing;
+    }
+
+    @Override
+    public String toString() {
+        return id + customerId + plan + monthlyFee + active + renewing;
     }
 }
