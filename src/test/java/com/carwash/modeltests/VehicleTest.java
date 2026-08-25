@@ -8,7 +8,7 @@ import com.carwash.model.Vehicle;
 public class VehicleTest {
     
     @Test
-    void testGettersandSetters() {
+    void testGettersAndSetters() {
         Vehicle vehicle = new Vehicle();
 
         vehicle.setId(2);

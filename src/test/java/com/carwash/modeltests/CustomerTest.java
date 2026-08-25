@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class CustomerTest {
     
     @Test 
-    void testGettersandSetters() {
+    void testGettersAndSetters() {
         Customer customer = new Customer();
 
         customer.setId(1);

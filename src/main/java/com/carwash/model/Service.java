@@ -10,42 +10,42 @@ public class Service {
 
     public Service() {}
 
-    public Service(int id, String name, BigDecimal price, in durationMin) {
+    public Service(int id, String name, BigDecimal price, int durationMin) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.durationMin = durationMin;
     }
 
-    private int getId() {
+    public int getId() {
         return id;
     }
 
-    private void setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    private String getName() {
+    public String getName() {
         return name;
     }
 
-    private void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    private BigDecimal getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    private void setPrice(BigDecimal price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
-    private int getDurationMin() {
+    public int getDurationMin() {
         return durationMin;
     }
 
-    private void setDurationMin(int duration) {
+    public void setDurationMin(int duration) {
         this.durationMin = duration;
     }
 

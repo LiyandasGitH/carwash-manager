@@ -8,7 +8,7 @@ import com.carwash.model.Employee;
 public class EmployeeTest {
 
     @Test
-    void testGettersandSetters() {
+    void testGettersAndSetters() {
         Employee employee = new Employee();
 
         employee.setId(10);

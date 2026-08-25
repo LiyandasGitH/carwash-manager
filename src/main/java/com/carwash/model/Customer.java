@@ -3,8 +3,8 @@ package com.carwash.model;
 import java.time.LocalDate;
 
 public class Customer {
-    private final int id;
-    private final String name;
+    private int id;
+    private String name;
     private String phone;
     private String email;
     private String memberStatus; // NONE, BASIC, PREMIUM
@@ -37,8 +37,8 @@ public class Customer {
     }
 
     public void setName(String name) {
-        if (name.isEmpty()) {
-            throw new IllegalArgumentExeption();
+        if (name.trim().isEmpty()) {
+            throw new IllegalArgumentException();
         }
         this.name = name;
     }
@@ -77,7 +77,8 @@ public class Customer {
 
     @Override
     public String toString() {
-        return name + " is a " + (memberStatus != null) ? + memberStatus + " customer at Sifiso's Car Wash.";
+        String status = (memberStatus != null && !memberStatus.trim().isEmpty()) ? memberStatus : "NONE";
+        return name + " is a " + status + " customer at Sifiso's Car Wash.";
     }
 
 
