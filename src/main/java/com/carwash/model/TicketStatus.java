@@ -1,5 +1,5 @@
 package com.carwash.model;
 
 public enum TicketStatus {
-        QUEUED, IN_PROGRESS, DONE, PAID, CANCELLED;
+        QUEUED, PENDING, DONE, PAID, CANCELLED;
 }

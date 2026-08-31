@@ -81,5 +81,4 @@ public class Customer {
         return name + " is a " + status + " customer at Sifiso's Car Wash.";
     }
 
-
 }
