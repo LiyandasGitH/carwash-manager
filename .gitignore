@@ -44,3 +44,6 @@ build/
 
 ### idea ###
 .idea/
+
+### xml ###
+dependency-reduced-pom.xml
