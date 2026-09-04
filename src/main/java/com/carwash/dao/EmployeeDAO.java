@@ -25,6 +25,7 @@ public class EmployeeDAO {
         e.setId(rs.getInt("id"));
         e.setName(rs.getString("name"));
         e.setRole(rs.getString("role"));
+
         return e;
     }
 }

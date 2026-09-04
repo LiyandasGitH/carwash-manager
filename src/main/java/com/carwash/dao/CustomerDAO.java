@@ -33,6 +33,7 @@ public class CustomerDAO {
 
         Date d = resultSet.getDate("join_date");
         c.setJoinDate(d != null ? d.toLocalDate() : null);
+
         return c;
     }
 }
