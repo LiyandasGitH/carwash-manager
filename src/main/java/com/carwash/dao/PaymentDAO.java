@@ -43,16 +43,12 @@ public class PaymentDAO {
         p.setId(rs.getInt("id"));
         p.setTicketId(rs.getInt("ticket_id"));
         p.setAmount(rs.getBigDecimal("amount"));
-        p.setMethod(Method.valueOf(rs.getString("method")));
-        p.setStatus(PaymentStatus.valueOf(rs.getString("status")));
+        p.setMethod(Method.valueOf(rs.getString("payment_method")));
+        p.setStatus(PaymentStatus.valueOf(rs.getString("payment_status")));
 
-        Timestamp ts = rs.getTimestamp("paid_at");
+        Timestamp ts = rs.getTimestamp("paid");
         p.setPaid(ts != null ? ts.toLocalDateTime() : null);
         return p;
     }
-
-
-
-
 
 }

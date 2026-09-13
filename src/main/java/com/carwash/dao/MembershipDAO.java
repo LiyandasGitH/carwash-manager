@@ -24,7 +24,7 @@ public class MembershipDAO {
         m.setId(rs.getInt("id"));
         m.setCustomerId(rs.getInt("customer_id"));
         m.setPlan(rs.getString("plan"));
-        m.setMonthlyFee(rs.getBigDecimal("monthly_price"));
+        m.setMonthlyFee(rs.getBigDecimal("monthly_fee"));
         m.setActive(rs.getBoolean("active"));
 
         Date d = rs.getDate("renews");
