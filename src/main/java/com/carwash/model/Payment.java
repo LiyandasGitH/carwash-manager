@@ -10,6 +10,10 @@ public class Payment {
     private BigDecimal amount;
     private Method method;
     private PaymentStatus status;
+    /*
+    * need to revisit the naming of the below
+    * paid does not seem like the correct way to name something with LocalDateTime as an Object
+    * */
     private LocalDateTime paid;
 
     public Payment() {}
