@@ -20,6 +20,18 @@ public class EmployeeDAO {
         return result;
     }
 
+    public Employee findById(int id) throws SQLException {
+        String sql = "SELECT * employees WHERE id = ?";
+        try (Connection conn = DBConnection.getConnection();
+        PreparedStatement prep = conn.prepareStatement(sql)) {
+            try (ResultSet rs = prep.executeQuery()) {
+                if (rs.next())
+                    return map(rs);
+            }
+        }
+        return null;
+    }
+
     private Employee map(ResultSet rs) throws SQLException {
         Employee e = new Employee();
         e.setId(rs.getInt("id"));
