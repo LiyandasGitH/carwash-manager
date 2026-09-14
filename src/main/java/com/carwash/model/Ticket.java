@@ -12,6 +12,12 @@ public class Ticket {
     private TicketStatus status;
     private LocalDateTime created;
 
+    // display fields, populated by joins to other tables
+    private String customerName;
+    private String vehicleLabel;
+    private String serviceName;
+    private String employeeName;
+
     public Ticket() {}
 
     public Ticket(int id, int customerId, int vehicleId, int serviceId, Integer employeeId,
@@ -79,6 +85,38 @@ public class Ticket {
 
     public void setCreated(LocalDateTime created) {
         this.created = created;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getVehicleLabel() {
+        return vehicleLabel;
+    }
+
+    public void setVehicleLabel(String vehicleLabel) {
+        this.vehicleLabel = vehicleLabel;
+    }
+
+    public String getServiceName() {
+        return serviceName;
+    }
+
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
+
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 
     @Override

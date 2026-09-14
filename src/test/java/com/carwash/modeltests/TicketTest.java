@@ -23,6 +23,11 @@ public class TicketTest {
         ticket.setStatus(TicketStatus.IN_PROGRESS);
         ticket.setCreated(now);
 
+        ticket.setCustomerName("Daenerys Targaryen");
+        ticket.setVehicleLabel("ABC123GP - Mercedes-Benz C-Class");
+        ticket.setServiceName("Premium Wash");
+        ticket.setEmployeeName("Jorah");
+
         assertEquals(10, ticket.getId());
         assertEquals(5, ticket.getCustomerId());
         assertEquals(2, ticket.getVehicleId());
@@ -30,6 +35,11 @@ public class TicketTest {
         assertEquals(7, ticket.getEmployeeId());
         assertEquals(TicketStatus.IN_PROGRESS, ticket.getStatus());
         assertEquals(now, ticket.getCreated());
+
+        assertEquals("Daenerys Targaryen", ticket.getCustomerName());
+        assertEquals("ABC123GP - Mercedes-Benz C-Class", ticket.getVehicleLabel());
+        assertEquals("Premium Wash", ticket.getServiceName());
+        assertEquals("Jorah", ticket.getEmployeeName());
     }
 
     @Test
