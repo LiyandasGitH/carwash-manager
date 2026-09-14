@@ -1,4 +1,4 @@
-package com.carwash.dao;
+package com.carwash.daotests;
 
 public class CustomerDAOTest {
 }

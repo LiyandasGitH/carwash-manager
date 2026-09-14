@@ -1,5 +1,6 @@
-package com.carwash.db;
+package com.carwash.dbtests;
 
+import com.carwash.db.DBConnection;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;

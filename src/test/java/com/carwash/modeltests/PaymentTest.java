@@ -22,14 +22,14 @@ public class PaymentTest {
         payment.setAmount(new BigDecimal("150.00"));
         payment.setMethod(Method.CASH);
         payment.setStatus(PaymentStatus.COMPLETED);
-        payment.setPaid(paidTime);
+        payment.setPaidAt(paidTime);
 
         assertEquals(1, payment.getId());
         assertEquals(100, payment.getTicketId());
         assertEquals(new BigDecimal("150.00"), payment.getAmount());
         assertEquals(Method.CASH, payment.getMethod());
         assertEquals(PaymentStatus.COMPLETED, payment.getStatus());
-        assertEquals(paidTime, payment.getPaid());
+        assertEquals(paidTime, payment.getPaidAt());
     }
 
     @Test
@@ -42,6 +42,6 @@ public class PaymentTest {
         assertEquals(new BigDecimal("250.50"), payment.getAmount());
         assertEquals(Method.CARD, payment.getMethod());
         assertEquals(PaymentStatus.PENDING, payment.getStatus());
-        assertEquals(paidTime, payment.getPaid());
+        assertEquals(paidTime, payment.getPaidAt());
     }
 }
