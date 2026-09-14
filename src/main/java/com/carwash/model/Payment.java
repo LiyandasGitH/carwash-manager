@@ -14,17 +14,17 @@ public class Payment {
     * need to revisit the naming of the below
     * paid does not seem like the correct way to name something with LocalDateTime as an Object
     * */
-    private LocalDateTime paid;
+    private LocalDateTime paidAt;
 
     public Payment() {}
 
-    public Payment(int id, int ticketId, BigDecimal amount, Method method, PaymentStatus status, LocalDateTime paid) {
+    public Payment(int id, int ticketId, BigDecimal amount, Method method, PaymentStatus status, LocalDateTime paidAt) {
         this.id = id;
         this.ticketId = ticketId;
         this.amount = amount;
         this.method = method;
         this.status = status;
-        this.paid = paid;
+        this.paidAt = paidAt;
     }
 
     public int getId() {
@@ -67,12 +67,12 @@ public class Payment {
         this.status = status;
     }
 
-    public LocalDateTime getPaid() {
-        return paid;
+    public LocalDateTime getPaidAt() {
+        return paidAt;
     }
 
-    public void setPaid(LocalDateTime paid) {
-        this.paid = paid;
+    public void setPaidAt(LocalDateTime paidAt) {
+        this.paidAt = paidAt;
     }
 
     @Override

@@ -46,8 +46,8 @@ public class PaymentDAO {
         p.setMethod(Method.valueOf(rs.getString("payment_method")));
         p.setStatus(PaymentStatus.valueOf(rs.getString("payment_status")));
 
-        Timestamp ts = rs.getTimestamp("paid");
-        p.setPaid(ts != null ? ts.toLocalDateTime() : null);
+        Timestamp ts = rs.getTimestamp("paid_at");
+        p.setPaidAt(ts != null ? ts.toLocalDateTime() : null);
         return p;
     }
 
