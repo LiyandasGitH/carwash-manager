@@ -53,6 +53,8 @@ public class TicketDAO {
     }
 
     public int insert(Ticket t) throws SQLException {
+        String sql = "INSERT INTO tickets (customer_id, vehicle_id, service_id, employee_id, status) VALUES (?, ?, ?, ?, ?)";
+
         return 1;
     }
 
