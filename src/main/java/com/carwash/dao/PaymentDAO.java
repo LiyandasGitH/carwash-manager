@@ -58,8 +58,7 @@ public class PaymentDAO {
     }
 
     /**
-     *
-     *
+     * rev grouped by day for the last x number of days
      * */
     public List<Object[]> revenueByDay(int days) throws SQLException {
         String sql = "SELECT DATE(paid_at) AS d, SUM(amount) AS total FROM payments " +
@@ -79,6 +78,27 @@ public class PaymentDAO {
         return result;
     }
 
+    /**
+     * keep track of total customers by how much spent
+     * */
+    public List<Object[]> topCustomers(int limit) throws SQLException {
+        String sql = "SELECT c.name, SUM(p.amount) AS total, COUNT(*) AS visits " +
+                "FROM payments p " +
+                "JOIN tickets t ON p.ticket_id = t.id " +
+                "JOIN customers c ON t.customer_id = c.id " +
+                "WHERE p.status = 'COMPLETED' " +
+                "GROUP BY c.id, c.name ORDER BY total DESC LIMIT ?";
+        List<Object[]> result = new ArrayList<>();
+        try (Connection conn = DBConnection.getConnection();
+        PreparedStatement prep = conn.prepareStatement(sql)) {
+            prep.setInt(1, limit);
+            try (ResultSet rs = prep.executeQuery()) {
+                while (rs.next())
+                    result.add(new Object[]{rs.getString("name"), rs.getBigDecimal("total"), rs.getInt("visits")});
+            }
+        }
+        return result;
+    }
 
 
     private Payment map(ResultSet rs) throws SQLException {
