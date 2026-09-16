@@ -5,7 +5,9 @@ import com.carwash.model.Method;
 import com.carwash.model.Payment;
 import com.carwash.model.PaymentStatus;
 
+import java.math.BigDecimal;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +39,47 @@ public class PaymentDAO {
         }
         return result;
     }
+
+    /**
+    * total rev between two dates
+    * */
+    public BigDecimal totalRevenueBetween(LocalDate from, LocalDate to) throws SQLException {
+        String sql = "SELECT COALESCE(SUM(amount), 0) AS total FROM payments " +
+                "WHERE status = 'COMPLETED' AND DATE(paid_at) BETWEEN ? AND ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setDate(1, Date.valueOf(from));
+            ps.setDate(2, Date.valueOf(to));
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) return rs.getBigDecimal("total");
+            }
+        }
+        return BigDecimal.ZERO;
+    }
+
+    /**
+     *
+     *
+     * */
+    public List<Object[]> revenueByDay(int days) throws SQLException {
+        String sql = "SELECT DATE(paid_at) AS d, SUM(amount) AS total FROM payments " +
+                "WHERE status = 'COMPLETED' AND paid_at >= DATE_SUB(CURRENT_DATE, INTERVAL ? DAY) " +
+                "GROUP BY DATE(paid_at) ORDER BY d";
+
+        List<Object[]> result = new ArrayList<>();
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+                 ps.setInt(1, days);
+                 try (ResultSet rs = ps.executeQuery()) {
+                     while (rs.next()) {
+                         result.add(new Object[]{rs.getDate("d").toLocalDate(), rs.getBigDecimal("total")});
+                     }
+                 }
+        }
+        return result;
+    }
+
+
 
     private Payment map(ResultSet rs) throws SQLException {
         Payment p = new Payment();
