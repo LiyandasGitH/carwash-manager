@@ -2,6 +2,7 @@ package com.carwash.dao;
 
 import com.carwash.db.DBConnection;
 import com.carwash.model.Service;
+import com.sun.source.tree.BreakTree;
 
 import java.sql.*;
 
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ServiceDAO {
+
     public List<Service> findAll() throws SQLException {
         String sql = "SELECT * FROM services ORDER BY price";
         List<Service> result = new ArrayList<>();
@@ -17,6 +19,18 @@ public class ServiceDAO {
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) result.add(map(rs));
         }
+        return result;
+    }
+
+    public Service findById(int id) throws SQLException {
+        String sql = "SELECT * FROM services ORDER BY price";
+        List<Service> result = new ArrayList<>();
+        try (Connection con = DBConnection.getConnection();
+        PreparedStatement prep = con.prepareStatement(sql);
+            ResultSet rs = prep.executeQuery()) {
+                while (rs.next())
+                    result.add(map(rs));
+            }
         return result;
     }
 
