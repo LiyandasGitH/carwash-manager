@@ -24,14 +24,14 @@ public class ServiceDAO {
 
     public Service findById(int id) throws SQLException {
         String sql = "SELECT * FROM services ORDER BY price";
-        List<Service> result = new ArrayList<>();
-        try (Connection con = DBConnection.getConnection();
-        PreparedStatement prep = con.prepareStatement(sql);
-            ResultSet rs = prep.executeQuery()) {
-                while (rs.next())
-                    result.add(map(rs));
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) return map(rs);
             }
-        return result;
+        }
+        return null;
     }
 
     private Service map(ResultSet rs) throws SQLException {
