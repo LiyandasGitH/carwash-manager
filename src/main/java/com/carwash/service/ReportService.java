@@ -3,9 +3,9 @@ package com.carwash.service;
 import com.carwash.dao.PaymentDAO;
 
 import java.math.BigDecimal;
-import java.nio.file.LinkOption;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 
 public class ReportService {
 
@@ -21,6 +21,12 @@ public class ReportService {
         return paymentDAO.totalRevenueBetween(today.minusDays(6), today);
     }
 
+    public List<Object[]> revenueByDay(int days) throws SQLException {
+        return paymentDAO.revenueByDay(days);
+    }
 
+    public List<Object[]> topCustomers(int limit) throws SQLException {
+        return paymentDAO.topCustomers(limit);
+    }
     
 }
