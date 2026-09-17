@@ -22,6 +22,34 @@ public class VehicleDAO {
         return result;
     }
 
+    public Vehicle findByInt(int id) throws SQLException {
+        String sql = "SELECT * FROM vehicles WHERE id = ?";
+        try (Connection conn = DBConnection.getConnection();
+        PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next())
+                    return map(rs);
+            }
+        }
+        return null;
+    }
+
+
+    public List<Vehicle> findAll() throws SQLException {
+        String sql = "SELECT * FROM vehicles ORDER BY id";
+        List<Vehicle> result = new ArrayList<>();
+        try (Connection conn = DBConnection.getConnection();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery()) {
+            while (rs.next())
+                result.add(map(rs));
+        }
+        return result;
+    }
+
+
+
     private Vehicle map(ResultSet rs) throws SQLException {
         Vehicle v = new Vehicle();
         v.setId(rs.getInt("id"));
