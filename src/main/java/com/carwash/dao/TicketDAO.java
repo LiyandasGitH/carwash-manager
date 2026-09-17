@@ -72,6 +72,26 @@ public class TicketDAO {
         return 1;
     }
 
+    public void updateStatus(int ticketId, TicketStatus status) throws SQLException {
+        String sql = "UPDATE tickets SET status = ? WHERE id = ?";
+        try (Connection conn = DBConnection.getConnection();
+        PreparedStatement prep = conn.prepareStatement(sql)) {
+            prep.setString(1, status.name());
+            prep.setInt(2, ticketId);
+            prep.executeUpdate();
+        }
+    }
+
+    public void assignEmployee(int ticketId, int employeeId) throws SQLException {
+        String sql = "UPDATE tickets SET employee_id = ? WHERE id = ?";
+        try (Connection conn = DBConnection.getConnection();
+        PreparedStatement prep = conn.prepareStatement(sql)) {
+        prep.setInt(1, employeeId);
+        prep.setInt(2, ticketId);
+        prep.executeUpdate();
+        }
+    }
+
     private Ticket map(ResultSet rs) throws SQLException {
         Ticket t = new Ticket();
         t.setId(rs.getInt("id"));
