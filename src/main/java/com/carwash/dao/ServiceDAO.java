@@ -34,6 +34,22 @@ public class ServiceDAO {
         return null;
     }
 
+    public int insert(Service s) throws SQLException {
+        String sql = "INSERT INTO services (name, price, duration_min) VALUES (?, ?, ?)";
+        try (Connection conn = DBConnection.getConnection();
+        PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            ps.setString(1, s.getName());
+            ps.setBigDecimal(2, s.getPrice());
+            ps.setInt(3, s.getDurationMin());
+            ps.executeUpdate();
+            try (ResultSet keys = ps.getGeneratedKeys()) {
+                if (keys.next())
+                    return keys.getInt(1);
+            }
+        }
+        return -1;
+    }
+
     private Service map(ResultSet rs) throws SQLException {
         Service s = new Service();
         s.setId(rs.getInt("id"));

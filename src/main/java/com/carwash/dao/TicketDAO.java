@@ -54,7 +54,21 @@ public class TicketDAO {
 
     public int insert(Ticket t) throws SQLException {
         String sql = "INSERT INTO tickets (customer_id, vehicle_id, service_id, employee_id, status) VALUES (?, ?, ?, ?, ?)";
-
+        try (Connection conn = DBConnection.getConnection();
+        PreparedStatement prep = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            prep.setInt(1, t.getCustomerId());
+            prep.setInt(2, t.getVehicleId());
+            prep.setInt(3, t.getServiceId());
+            if (t.getEmployeeId() != null)
+                prep.setInt(4, t.getEmployeeId());
+            else prep.setNull(4, Types.INTEGER);
+            prep.setString(5, t.getStatus() == null ? "QUEUED" : t.getStatus().name());
+            prep.executeUpdate();
+            try (ResultSet keys = prep.getGeneratedKeys()) {
+                if (keys.next())
+                    return keys.getInt(1);
+            }
+        }
         return 1;
     }
 
