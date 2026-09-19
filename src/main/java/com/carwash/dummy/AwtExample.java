@@ -1,4 +1,4 @@
-package com.carwash.ui;
+package com.carwash.dummy;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -23,7 +23,7 @@ public class AwtExample {
 
         // Define layout structure and window dimensions
         frame.setLayout(new FlowLayout());
-        frame.setSize(300, 200);
+        frame.setSize(200, 200);
 
         // Make the window visible to the user
         frame.setVisible(true);

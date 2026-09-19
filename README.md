@@ -3,8 +3,6 @@
 A Java Swing desktop app for running a car wash: customer & vehicle tracking, a ticket board for the wash queue, simulated in-house payment processing, and revenue reports. 
 
 Built as a Java/JDBC/MySQL take on the classic "members + dues + tickets + dashboard" pattern used by HOA/club management apps, adapted to a car wash business.
- 
-
 
 ## Project Structure 
 
@@ -90,6 +88,10 @@ Carwash Manager/
 ## WTC Tracking 
 
 WTC-Q4QETHF7
+
+## LICENSE
+
+
 
 ## Author/s
 Liyanda Tonisi
