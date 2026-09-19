@@ -7,9 +7,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
-import static java.awt.AWTEventMulticaster.add;
-
-public class CustomerPanel {
+public class CustomerPanel extends JPanel {
 
     private final CustomerDAO customerDAO = new CustomerDAO();
     private final VehicleDAO vehicleDAO = new VehicleDAO();
