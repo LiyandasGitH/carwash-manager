@@ -60,6 +60,54 @@ public class CustomerPanel extends JPanel {
         split.setResizeWeight(0.6);
         add(split, BorderLayout.CENTER);
 
+        // action buttons
+        JPanel actions = new JPanel(new FlowLayout(FlowLayout.LEFT));
+
+        JButton addCustomerBtn = new JButton("Add Customer");
+        JButton editCustomerBtn = new JButton("Edit Customer");
+        JButton addVehicleBtn = new JButton("Add Vehicle");
+
+        actions.add(addCustomerBtn);
+        actions.add(editCustomerBtn);
+        actions.add(addVehicleBtn);
+        add(actions, BorderLayout.SOUTH);
+
+        // listners
+        searchBtn.addActionListener(e ->
+                loadCustomers(searchField.getText().trim()));
+        clearBtn.addActionListener(e -> {
+            searchField.setText(""); loadCustomers("");
+        });
+
+        customerTable.getSelectionModel().addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting()) loadVehiclesForSelected();
+        });
+
+        addCustomerBtn.addActionListener(e -> showAddCustomerDialog());
+        editCustomerBtn.addActionListener(e -> showEditCustomerDialog());
+        addVehicleBtn.addActionListener(e -> showAddVehicleDialog());
+
+        loadCustomers("");
+    }
+
+    private void loadCustomers(String keyword) {
+
+    }
+
+    private void loadVehiclesForSelected() {
+
+    }
+
+    private void showAddCustomerDialog() {
+
+    }
+
+    private void showEditCustomerDialog() {
+
+    }
+
+    private void showAddVehicleDialog() {
+
     }
 
 }
