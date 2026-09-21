@@ -89,10 +89,31 @@ public class CheckoutPanel extends JPanel {
     }
 
     private void loadFromField() {
-
+        String text = ticketIdField.getText().trim();
+        if (text.isEmpty()) return;
+        try {
+            loadTicket(Integer.parseInt(text));
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Ticket ID must be a number.", "Invalid input",
+                    JOptionPane.WARNING_MESSAGE);
+        }
     }
 
+    /**
+     * load ticket w/ price & computes its price (w/ any membership discount applied)
+     * */
     public void loadTicket(int ticketId) {
+        try {
+            Ticket t = ticketService.getTicket(ticketId);
+            if (t == null) {
+                JOptionPane.showMessageDialog(this, "No ticket with ID" + ticketId, "Not found",
+                        JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            currentTicket = t;
+        } catch (SQLException ex) {
+            showDbError(ex);
+        }
 
     }
 
