@@ -1,5 +1,5 @@
 CREATE TABLE employees (
     id INTEGER NOT NULL PRIMARY KEY,
-    name TEXT NOT NULL,
-    role TEXT NOT NULL
+    name VARCHAR(100) NOT NULL,
+    role VARCHAR(50) NOT NULL
 );

@@ -1,9 +1,9 @@
 CREATE TABLE memberships (
     id INTEGER NOT NULL PRIMARY KEY,
     customer_id INTEGER NOT NULL,
-    plan TEXT NOT NULL,
-    monthly_fee NUMERIC(12, 2) NOT NULL,
-    active BOOLEAN NOT NULL,
+    plan VARCHAR(20) NOT NULL,
+    monthly_fee DECIMAL(12, 2) NOT NULL,
+    active BOOLEAN DEFAULT TRUE,
     renewing DATE NOT NULL,
-    FOREIGN KEY (customer_id) REFERENCES customers(id)
+    FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE CASCADE
 );
