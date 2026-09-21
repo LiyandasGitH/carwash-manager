@@ -2,7 +2,9 @@ package com.carwash.ui;
 
 import com.carwash.dao.ServiceDAO;
 import com.carwash.model.Method;
+import com.carwash.model.Service;
 import com.carwash.model.Ticket;
+import com.carwash.model.TicketStatus;
 import com.carwash.service.PaymentService;
 import com.carwash.service.TicketService;
 
@@ -111,14 +113,50 @@ public class CheckoutPanel extends JPanel {
                 return;
             }
             currentTicket = t;
+
+            ticketIdField.setText(String.valueOf(ticketId));
+
+            Service service = serviceDAO.findById(t.getServiceId());
+            currentPrice = paymentService.calculatePrice(service, t.getCustomerId());
+
+            customerLabel.setText(t.getCustomerName());
+            vehicleLabel.setText(t.getVehicleLabel());
+            serviceLabel.setText(t.getServiceName());
+
+            statusLabel.setText(t.getStatus().toString());
+            priceLabel.setText("R" + currentPrice);
+
+            boolean payable = t.getStatus() == TicketStatus.DONE
+                    ||
+                    t.getStatus() == TicketStatus.IN_PROGRESS
+                    ||
+                    t.getStatus() == TicketStatus.QUEUED;
+            payBtn.setEnabled(payable);
+
+            if (t.getStatus() == TicketStatus.PAID) {
+                receiptArea.setText("This ticket has already been paid.");
+                payBtn.setEnabled(false);
+            }
         } catch (SQLException ex) {
             showDbError(ex);
         }
-
     }
 
     private void chargePayment() {
-
+        if (currentTicket == null) return;
+        Method method = (Method) methodCombo.getSelectedItem();
+        try {
+            PaymentService.Receipt receipt = paymentService.processPayment(currentTicket, currentPrice, method);
+            receiptArea.setText(buildReceiptText(receipt));
+            payBtn.setEnabled(false);
+            statusLabel.setText("PAID");
+            onPaymentComplete.run();
+        } catch (IllegalStateException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Payment failed",
+                    JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            showDbError(ex);
+        }
     }
 
     private String buildReceiptText(PaymentService.Receipt receipt) {
