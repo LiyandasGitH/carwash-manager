@@ -1,4 +1,6 @@
 package com.carwash.ui;
 
-public class TicketBoardPanel {
+import javax.swing.*;
+
+public class TicketBoardPanel extends JPanel {
 }

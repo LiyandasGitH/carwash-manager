@@ -1,4 +1,6 @@
 package com.carwash.ui;
 
-public class ReportsPanel {
+import javax.swing.*;
+
+public class ReportsPanel extends JPanel {
 }
