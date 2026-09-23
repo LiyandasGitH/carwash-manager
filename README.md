@@ -23,13 +23,12 @@ A Java based car wash management system, that keeps track of services rendered, 
 
 ```
 Carwash Manager/
-├── .gitignore
-├── .idea/
-├── .mvn/
 ├── dependency-reduced-pom.xml
+├── .gitignore
 ├── pom.xml
-├── plans.txt
+├── project.txt
 ├── README.md
+├── research.md
 ├── src/
 │   ├── main/
 │   │   ├── java/
@@ -45,6 +44,8 @@ Carwash Manager/
 │   │   │       │   └── VehicleDAO.java
 │   │   │       ├── db/
 │   │   │       │   └── DBConnection.java
+│   │   │       ├── dummy/
+│   │   │       │   └── AwtExample.java
 │   │   │       ├── model/
 │   │   │       │   ├── Customer.java
 │   │   │       │   ├── Employee.java
@@ -61,43 +62,53 @@ Carwash Manager/
 │   │   │       │   ├── ReportService.java
 │   │   │       │   └── TicketService.java
 │   │   │       └── ui/
-│   │   │           └── MainFrame.java
+│   │   │           ├── CheckoutPanel.java
+│   │   │           ├── CustomerPanel.java
+│   │   │           ├── MainFrame.java
+│   │   │           ├── ReportsPanel.java
+│   │   │           └── TicketBoardPanel.java
 │   │   └── resources/
 │   │       └── sql/
 │   │           ├── customers.sql
 │   │           ├── employees.sql
 │   │           ├── memberships.sql
 │   │           ├── payments.sql
+│   │           ├── schema.sql
 │   │           ├── services.sql
 │   │           ├── tickets.sql
 │   │           └── vehicles.sql
 │   └── test/
-│       └── java/com/carwash/
-│           ├── daotests/
-│           │   ├── CustomerDAOTest.java
-│           │   ├── EmployeeDAOTest.java
-│           │   ├── MembershipDAOTest.java
-│           │   ├── PaymentDAOTest.java
-│           │   ├── ServiceDAOTest.java
-│           │   ├── TicketDAOTest.java
-│           │   └── VehicleDAOTest.java
-│           ├── dbtests/
-│           │   └── DBConnectionTest.java
-│           ├── modeltests/
-│           │   ├── CustomerTest.java
-│           │   ├── EmployeeTest.java
-│           │   ├── MembershipTest.java
-│           │   ├── PaymentTest.java
-│           │   ├── ServiceTest.java
-│           │   ├── TicketTest.java
-│           │   └── VehicleTest.java
-│           ├── servicetests/
-│           │   ├── PaymentServiceTest.java
-│           │   ├── ReportServiceTest.java
-│           │   └── TicketServiceTest.java
-│           └── uitests/
-│               └── MainFrameTest.java
-└── target/
+│       └── java/
+│           └── com/carwash/
+│               ├── daotests/
+│               │   ├── CustomerDAOTest.java
+│               │   ├── EmployeeDAOTest.java
+│               │   ├── MembershipDAOTest.java
+│               │   ├── PaymentDAOTest.java
+│               │   ├── ServiceDAOTest.java
+│               │   ├── TicketDAOTest.java
+│               │   └── VehicleDAOTest.java
+│               ├── dbtests/
+│               │   └── DBConnectionTest.java
+│               ├── modeltests/
+│               │   ├── CustomerTest.java
+│               │   ├── EmployeeTest.java
+│               │   ├── MembershipTest.java
+│               │   ├── PaymentTest.java
+│               │   ├── ServiceTest.java
+│               │   ├── TicketTest.java
+│               │   └── VehicleTest.java
+│               ├── servicetests/
+│               │   ├── PaymentServiceTest.java
+│               │   ├── ReportServiceTest.java
+│               │   └── TicketServiceTest.java
+│               └── uitests/
+│                   ├── CheckoutPanelTest.java
+│                   ├── CustomerPanelTest.java
+│                   ├── MainFrameTest.java
+│                   ├── ReportsPanelTest.java
+│                   └── TicketBoardPanelTest.java
+└── target/            (build output: jars, classes, test reports)
 ```
 
 ## Features 
@@ -113,7 +124,7 @@ Carwash Manager/
 
 1. **Database Configuration**
 
-Ensure MySQL 8 is running, create the database, and run the consolidated schema scripts:
+Ensure MySQL 8 is installed & running, create the database, and run the consolidated schema scripts:
 
 ```text
 Log in to MySQL and run your setup schema 
