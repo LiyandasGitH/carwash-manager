@@ -1,7 +1,7 @@
 CREATE TABLE memberships (
     id INTEGER NOT NULL PRIMARY KEY,
     customer_id INTEGER NOT NULL,
-    plan VARCHAR(20) NOT NULL,
+    plan VARCHAR(20) NOT NULL, -- BASIC, PREMIUM
     monthly_fee DECIMAL(12, 2) NOT NULL,
     active BOOLEAN DEFAULT TRUE,
     renewing DATE NOT NULL,
