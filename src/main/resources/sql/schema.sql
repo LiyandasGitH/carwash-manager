@@ -42,7 +42,7 @@ VALUES
     ('Cersei Lannister', '555-0102', 'cerseilannister@proton.me', 'PREMIUM'),
     ('Jon Arryn', '555-0103', 'jonarryn@proton.me', 'BASIC');
 
-INSERT INTO vehicles (customer_id, plate, make, model, color)
+INSERT INTO vehicles (customer_id, plate, make, model, colour)
 VALUES
       (1, 'KL 123-467', 'VW', 'Golf', 'Silver'),
       (2, 'KL 232-111', 'Porsche', 'Carrera', 'Gold'),
