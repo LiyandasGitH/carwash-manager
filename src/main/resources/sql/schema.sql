@@ -49,7 +49,7 @@ VALUES
       (3, 'VE 667-898', 'Ford', 'Escape', 'Blue');
 
 
-INSERT INTO memberships (customer_id, plan, monthly_price, active, renews_at)
+INSERT INTO memberships (customer_id, plan, monthly_fee, active, renewing)
 VALUES
       (1, 'PREMIUM', 40.00, TRUE, DATE_ADD(CURRENT_DATE, INTERVAL 1 MONTH)),
       (3, 'BASIC', 20.00, TRUE, DATE_ADD(CURRENT_DATE, INTERVAL 1 MONTH));
