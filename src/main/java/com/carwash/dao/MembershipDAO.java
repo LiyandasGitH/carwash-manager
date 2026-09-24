@@ -27,7 +27,7 @@ public class MembershipDAO {
         m.setMonthlyFee(rs.getBigDecimal("monthly_fee"));
         m.setActive(rs.getBoolean("active"));
 
-        Date d = rs.getDate("renews");
+        Date d = rs.getDate("renewing");
         m.setRenewing(d != null ? d.toLocalDate() : null);
 
         return m;

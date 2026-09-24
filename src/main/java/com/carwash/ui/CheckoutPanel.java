@@ -71,7 +71,7 @@ public class CheckoutPanel extends JPanel {
         JPanel panel = new JPanel(new GridLayout(0, 2, 8, 8));
         panel.setBorder(BorderFactory.createTitledBorder("Ticket Summary"));
 
-        panel.add(new JLabel("Customer"));
+        panel.add(new JLabel("Customer:"));
         panel.add(customerLabel);
         panel.add(new JLabel("Vehicle:"));
         panel.add(vehicleLabel);

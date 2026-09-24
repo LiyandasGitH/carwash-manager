@@ -121,6 +121,6 @@ public class Ticket {
 
     @Override
     public String toString() {
-        return "The ticket id is " + id + ", it belongs to customer " + customerId;
+        return "Ticket id is " + id + ", it belongs to customer " + customerId;
     }
 }

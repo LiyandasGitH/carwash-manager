@@ -72,6 +72,6 @@ public class Membership {
 
     @Override
     public String toString() {
-        return id + customerId + plan + monthlyFee + active + renewing;
+        return customerId + " " + plan + " " + monthlyFee + " " + active + " " + " " + renewing;
     }
 }

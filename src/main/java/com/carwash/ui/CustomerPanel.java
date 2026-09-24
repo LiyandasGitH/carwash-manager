@@ -174,7 +174,8 @@ public class CustomerPanel extends JPanel {
     private void showEditCustomerDialog() {
         Integer id = getSelectedCustomerId();
         if (id == null) {
-            JOptionPane.showMessageDialog(this, "Select a customer first.", "No selection", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Select a customer first.", "No selection",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         try {

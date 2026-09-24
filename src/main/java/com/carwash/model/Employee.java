@@ -39,7 +39,7 @@ public class Employee {
 
     @Override 
     public String toString() {
-        return name + "is an employee, their role is " + role;
+        return name + " - " + role;
     }
 
 }

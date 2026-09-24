@@ -69,6 +69,6 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "number plate of customer " + customerId + " is " + plate;
+        return make + " - " + plate;
     }
 }
