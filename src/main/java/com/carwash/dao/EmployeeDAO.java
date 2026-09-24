@@ -21,7 +21,7 @@ public class EmployeeDAO {
     }
 
     public Employee findById(int id) throws SQLException {
-        String sql = "SELECT * employees WHERE id = ?";
+        String sql = "SELECT * FROM employees WHERE id = ?";
         try (Connection conn = DBConnection.getConnection();
         PreparedStatement prep = conn.prepareStatement(sql)) {
             prep.setInt(1, id);
