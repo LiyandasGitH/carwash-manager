@@ -14,12 +14,12 @@ public class CustomerDAO {
         String sql = "SELECT * FROM customers ORDER BY name";
         List<Customer> result = new ArrayList<>();
         try (
-                Connection conn = DBConnection.getConnection();
-                PreparedStatement statement = conn.prepareStatement(sql);
-                ResultSet resultSet = statement.executeQuery()) {
-                while (resultSet.next()) {
-                    result.add(map(resultSet));
-                }
+            Connection conn = DBConnection.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                result.add(map(resultSet));
+            }
         }
         return result;
     }
@@ -29,7 +29,7 @@ public class CustomerDAO {
         List<Customer> result = new ArrayList<>();
         try (Connection conn = DBConnection.getConnection();
         PreparedStatement ps = conn.prepareStatement(sql)) {
-            String like = "%" + keyword + "%";
+            String like = "%" + (keyword == null ? "" : keyword.trim()) + "%";
             ps.setString(1, like);
             ps.setString(2, like);
             ps.setString(3, like);

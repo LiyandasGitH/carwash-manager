@@ -98,7 +98,9 @@ public class CustomerPanel extends JPanel {
 
     private void loadCustomers(String keyword) {
         try {
-            List<Customer> customers = keyword.isEmpty() ? customerDAO.findAll() : customerDAO.search(keyword);
+            List<Customer> customers = keyword.isEmpty()
+                    ? customerDAO.findAll()
+                    : customerDAO.search(keyword);
             customerModel.setRowCount(0);
             for (Customer c : customers) {
                 customerModel.addRow(new Object[] {
@@ -131,7 +133,6 @@ public class CustomerPanel extends JPanel {
         } catch (SQLException ex) {
             showDbError(ex);
         }
-
     }
 
     private void showAddCustomerDialog() {

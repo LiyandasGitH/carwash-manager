@@ -11,7 +11,16 @@ public class VehicleDAO {
 
     public List<Vehicle> findByCustomer(int customerId) throws SQLException {
         String sql = "SELECT * FROM vehicles WHERE customer_id = ? ORDER BY id";
-        return query(sql);
+        List<Vehicle> result = new ArrayList<>();
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement prep = conn.prepareStatement(sql)) {
+            prep.setInt(1, customerId);
+            try (ResultSet rs = prep.executeQuery()) {
+                while (rs.next())
+                    result.add(map(rs));
+            }
+        }
+        return result;
     }
 
     public List<Vehicle> findAll() throws SQLException {
