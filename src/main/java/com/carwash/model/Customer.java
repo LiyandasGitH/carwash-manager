@@ -78,7 +78,7 @@ public class Customer {
     @Override
     public String toString() {
         String status = (memberStatus != null && !memberStatus.trim().isEmpty()) ? memberStatus : "NONE";
-        return name + " is a " + status + " customer at Sifiso's Car Wash.";
+        return name + " is a " + status + " customer at Stark Car Wash.";
     }
 
 }

@@ -23,7 +23,7 @@ public class ServiceDAO {
     }
 
     public Service findById(int id) throws SQLException {
-        String sql = "SELECT * FROM services ORDER BY price";
+        String sql = "SELECT * FROM services WHERE id = ?";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);

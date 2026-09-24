@@ -4,6 +4,7 @@ import com.carwash.model.Method;
 import com.carwash.model.Service;
 import com.carwash.model.Ticket;
 import com.carwash.service.PaymentService;
+import com.carwash.service.TicketService;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -45,11 +46,14 @@ public class PaymentServiceTest {
     @Test
     void testProcessPaymentIntegration() {
         PaymentService paymentService = new PaymentService();
-        Ticket ticket = new Ticket();
-        ticket.setId(999); // Dummy ID
+        TicketService ticketService = new TicketService();
 
         // hits the database via paymentDAO.insert() and ticketDAO.updateStatus()
         assertDoesNotThrow(() -> {
+
+            int realTicketId = ticketService.checkIn(1, 1, 1);
+            Ticket ticket = new Ticket();
+            ticket.setId(realTicketId);
 
             PaymentService.Receipt receipt = paymentService.processPayment(ticket, new BigDecimal("100.00"), Method.CARD);
 
