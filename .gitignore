@@ -41,6 +41,8 @@ build/
 
 ### env ###
 .env
+.env.local
+.env.production
 
 ### idea ###
 .idea/
