@@ -151,7 +151,8 @@ public class CustomerPanel extends JPanel {
         if (result != JOptionPane.OK_CANCEL_OPTION) return;
 
         if (name.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Name is required.", "Validation", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Name is required.", "Validation",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
 

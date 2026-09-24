@@ -64,6 +64,7 @@ public class CustomerDAO {
             prep.setString(3, c.getEmail());
             prep.setString(4, c.getMemberStatus() == null ? "NONE" : c.getMemberStatus());
             prep.setDate(5, Date.valueOf(c.getJoinDate() == null ? LocalDate.now() : c.getJoinDate()));
+            prep.executeUpdate();
             try (ResultSet keys = prep.getGeneratedKeys()) {
                 if (keys.next())
                     return keys.getInt(1);
