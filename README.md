@@ -133,6 +133,16 @@ sudo mysql < src/main/resources/sql/schema.sql
 
 ## Application Execution
 
+**To run the program:**
+```text
+./run.sh
+```
+
+**To test the program:**
+```text
+./test.sh
+```
+
 ## WTC Tracking 
 
 WTC-Q4QETHF7
