@@ -21,7 +21,7 @@ public class TicketDAO {
 
     public List<Ticket> findActive() throws SQLException {
         String sql = JOIN_SELECT +
-                "WHERE t.status IN ('QEUED', 'IN_PROGRESS', 'DONE') " +
+                "WHERE t.status IN ('QUEUED', 'IN_PROGRESS', 'DONE') " +
                 "ORDER BY t.created";
         return query(sql);
     }

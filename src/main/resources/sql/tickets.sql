@@ -3,7 +3,7 @@ CREATE TABLE tickets (
     customer_id INTEGER NOT NULL,
     vehicle_id INTEGER NOT NULL,
     service_id INTEGER NOT NULL,
-    employee_id INTEGER NOT NULL,
+    employee_id INTEGER,
     status VARCHAR(50) NOT NULL DEFAULT 'QUEUED', -- QUEUED, IN_PROGRESS, DONE, PAID, CANCELLED
     created DATETIME NOT NULL DEFAULT (CURRENT_TIMESTAMP),
     FOREIGN KEY (customer_id) REFERENCES customers(id),
