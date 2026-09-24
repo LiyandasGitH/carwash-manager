@@ -24,6 +24,7 @@ public class EmployeeDAO {
         String sql = "SELECT * employees WHERE id = ?";
         try (Connection conn = DBConnection.getConnection();
         PreparedStatement prep = conn.prepareStatement(sql)) {
+            prep.setInt(1, id);
             try (ResultSet rs = prep.executeQuery()) {
                 if (rs.next())
                     return map(rs);
