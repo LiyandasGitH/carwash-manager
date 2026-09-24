@@ -131,15 +131,11 @@ Log in to MySQL and run your setup schema
 sudo mysql < src/main/resources/sql/schema.sql
 ```
 
-
-
 ## Application Execution
 
 ## WTC Tracking 
 
 WTC-Q4QETHF7
-
-## LICENSE
 
 ## Author/s
 Liyanda Tonisi
