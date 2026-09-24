@@ -36,7 +36,6 @@ Carwash Manager/
 ├── project.txt
 ├── README.md
 ├── research.md
-├── 
 ├── src/
 │   ├── main/
 │   │   ├── java/
