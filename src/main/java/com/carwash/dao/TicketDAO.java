@@ -27,7 +27,7 @@ public class TicketDAO {
     }
 
     public List<Ticket> findAll() throws SQLException {
-        String sql = JOIN_SELECT + "ORDER BY t.created_at DESC";
+        String sql = JOIN_SELECT + "ORDER BY t.created DESC";
         return query(sql);
     }
 
