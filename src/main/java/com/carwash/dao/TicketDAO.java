@@ -10,17 +10,19 @@ import java.util.List;
 
 public class TicketDAO {
     private static final String JOIN_SELECT =
-            "SELECT t.*, c.name AS customer_name, \" +\n" +
-            "            \"       CONCAT(v.plate, ' - ', v.make, ' ', v.model) AS vehicle_label, \" +\n" +
-            "            \"       s.name AS service_name, e.name AS employee_name \" +\n" +
-            "            \"FROM tickets t \" +\n" +
-            "            \"JOIN customers c ON t.customer_id = c.id \" +\n" +
-            "            \"JOIN vehicles v ON t.vehicle_id = v.id \" +\n" +
-            "            \"JOIN services s ON t.service_id = s.id \" +\n" +
-            "            \"LEFT JOIN employees e ON t.employee_id = e.id \n";
+            "SELECT t.*, c.name AS customer_name, " +
+                "CONCAT(v.plate, ' - ', v.make, ' ', v.model) AS vehicle_label, " +
+                "s.name AS service_name, e.name AS employee_name " +
+                "FROM tickets t " +
+                "JOIN customers c ON t.customer_id = c.id " +
+                "JOIN vehicles v ON t.vehicle_id = v.id " +
+                "JOIN services s ON t.service_id = s.id " +
+                "LEFT JOIN employees e ON t.employee_id = e.id";
 
     public List<Ticket> findActive() throws SQLException {
-        String sql = JOIN_SELECT + "WHERE t.status IN ('QEUED', 'IN_PROGRESS', 'DONE') ORDER BY t.created";
+        String sql = JOIN_SELECT +
+                "WHERE t.status IN ('QEUED', 'IN_PROGRESS', 'DONE') " +
+                "ORDER BY t.created";
         return query(sql);
     }
 
