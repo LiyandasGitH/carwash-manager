@@ -17,11 +17,11 @@ public class TicketDAO {
                 "JOIN customers c ON t.customer_id = c.id " +
                 "JOIN vehicles v ON t.vehicle_id = v.id " +
                 "JOIN services s ON t.service_id = s.id " +
-                "LEFT JOIN employees e ON t.employee_id = e.id";
+                "LEFT JOIN employees e ON t.employee_id = e.id ";
 
     public List<Ticket> findActive() throws SQLException {
         String sql = JOIN_SELECT +
-                "WHERE t.status IN ('QUEUED', 'IN_PROGRESS', 'DONE') " +
+                " WHERE t.status IN ('QUEUED', 'IN_PROGRESS', 'DONE') " +
                 "ORDER BY t.created";
         return query(sql);
     }
