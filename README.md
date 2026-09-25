@@ -68,12 +68,13 @@ Carwash Manager/
 │   │   │       │   ├── PaymentService.java
 │   │   │       │   ├── ReportService.java
 │   │   │       │   └── TicketService.java
-│   │   │       └── ui/
-│   │   │           ├── CheckoutPanel.java
-│   │   │           ├── CustomerPanel.java
-│   │   │           ├── MainFrame.java
-│   │   │           ├── ReportsPanel.java
-│   │   │           └── TicketBoardPanel.java
+│   │   │       ├── ui/
+│   │   │       │   ├── CheckoutPanel.java
+│   │   │       │   ├── MainFrame.java
+│   │   │       │   ├── ReportsPanel.java
+│   │   │       │   └── TicketBoardPanel.java
+│   │   │       └── util/
+│   │   │           └── EnvConfig.java
 │   │   └── resources/
 |   |       ├── SQL-Cheat-Sheet.pdf
 │   │       └── sql/
